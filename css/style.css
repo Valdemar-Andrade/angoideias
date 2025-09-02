@@ -1,9 +1,11 @@
 :root {
     --primary: #002855;
-    --secondary: #f4b400;
+    --secondary: #359af1;
     --light: #f9f9f9;
     --dark: #333;
+    --golden: #ffbf00;
     --gradient: linear-gradient(135deg, rgba(0, 40, 85, 0.85), rgba(0, 40, 85, 0.55));
+    --light-blue: #a2c5fa;
 }
 
 body {
@@ -12,7 +14,7 @@ body {
     padding: 0;
     line-height: 1.6;
     color: var(--dark);
-    background: white;
+    background: #f1f1f1;
 }
 
 h1,
@@ -42,42 +44,50 @@ h3 {
 .hero {
     position: relative;
     height: 100vh;
-    background: url('../img/capa.png') center/cover no-repeat;
+    background: url('../img/background.jpg') center/cover no-repeat;
+    /*background: linear-gradient(135deg, #a8edea 0%, #3bb6c1 50%, #0380b0 100%);*/
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     color: white;
-    text-align: center;
 }
 
 .hero-overlay {
     position: absolute;
     inset: 0;
-    background: rgba(224, 224, 224, 0);
+}
+
+.hero-header {
+    position: absolute;
+    top: 20px;
+    left: 30px;
+    z-index: 10;
+}
+
+.logo-hero {
+    width: 200px;
 }
 
 .hero-content {
     position: relative;
-    max-width: 850px;
+    max-width: 500px;
     padding: 2rem;
     z-index: 2;
+    text-align: left;
+    margin-right: 5%;
 }
 
 .hero-content h1 {
     color: white;
     margin-bottom: 1rem;
+    font-size: 2.8rem;
 }
 
 .hero-content p {
     color: #eee;
     font-size: 1.1rem;
     margin-bottom: 2rem;
-}
-
-.logo-hero {
-    width: 300px;
-    height: auto;
-    margin-bottom: 1.5rem;
+    line-height: 1.6;
 }
 
 .scroll-indicator {
@@ -116,12 +126,21 @@ h3 {
 }
 
 .btn:hover {
-    background: #dba300;
+    background: #004595;
 }
 
 .btn.secondary {
     background: white;
     color: var(--primary);
+}
+
+.btn.whatsapp {
+    background: #25d366;
+    color: white;
+}
+
+.btn.whatsapp:hover {
+    background: #1ebe5d;
 }
 
 /* Containers */
@@ -171,8 +190,14 @@ h3 {
 .card i,
 .value-card i {
     font-size: 2rem;
-    color: var(--secondary);
+    color: var(--golden);
     margin-bottom: 0.8rem;
+}
+
+/* Missão & Visão premium */
+.card.mission,
+.card.vision {
+    background: #fffdf5;
 }
 
 /* Estrutura Organizacional */
@@ -214,70 +239,131 @@ h3 {
 /* Serviços */
 .service-card {
     position: relative;
-    height: 280px;
+    /* deixa de ser altura fixa */
+    min-height: 340px;
+    /* permite crescer com o conteúdo */
+    height: auto;
     border-radius: 14px;
     overflow: hidden;
+    /* mantém cantos arredondados sem cortar o conteúdo */
     background-size: cover;
     background-position: center;
-    transition: transform 0.4s ease-in-out;
+    transition: transform 0.25s ease;
 }
 
 .service-card:hover {
     transform: scale(1.05);
 }
 
-.service-card .overlay {
+/* gradiente por cima do background, sem “prender” o conteúdo */
+.service-card .overlay::before {
+    content: "";
     position: absolute;
     inset: 0;
     background: var(--gradient);
-    color: white;
+    z-index: 0;
+    border-radius: 14px;
+}
+
+.service-card .overlay {
+    position: relative;
+    /* <<< chave para o card acompanhar o conteúdo */
+    padding: 1.5rem;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    padding: 1.5rem;
-    transition: background 0.4s;
+    gap: .4rem;
+}
+
+/* conteúdo sempre acima do gradiente */
+.service-card .overlay > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* animação/efeito */
+.service-card:hover {
+    transform: translateY(-3px);
 }
 
 .service-card i {
     font-size: 2rem;
-    margin-bottom: 0.8rem;
-    color: var(--secondary);
+    color: var(--light-blue);
 }
 
 .service-card h3 {
-    color: var(--secondary);
-    margin-bottom: 0.6rem;
+    color: var(--light);
+    margin: .2rem 0 .4rem;
 }
 
-/* Clientes Carrossel */
-.clients {
-    background: var(--light);
-    text-align: center;
+.service-card p {
+    font-size: 0.95rem;
+    margin-bottom: 0.6rem;
+    color: var(--light);
+}
+
+/* Texto adicional (detalhes) escondido até hover */
+/* bloco com detalhes (colapsado por padrão) */
+.service-more {
+    max-height: 0;
+    overflow: clip;
+    /* evita scrollbar e pequenos “vazamentos” */
+    opacity: 0;
+    transition: max-height .5s ease, opacity .35s ease;
+    font-size: .9rem;
+    margin-top: .4rem;
+}
+
+.service-more ul {
+    margin: .4rem 0 0 1.2rem;
+    padding: 0;
+    list-style: disc;
+    color: var(--light);
+}
+
+/* ao passar o mouse, abre de verdade (sem cortar) */
+.service-card:hover .service-more {
+    max-height: 1200px;
+    /* super alto para caber qualquer texto */
+    opacity: 1;
+}
+
+/* Valores */
+.values {
+    background: #f7f9fc;
     padding: 4rem 0;
-    overflow: hidden;
+}
+
+.value-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 14px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+}
+
+/* Clientes (carrossel) */
+.clients {
+    background: #fffdf5;
+    padding: 4rem 0;
 }
 
 .clients-carousel {
     overflow: hidden;
-    width: 100%;
-    margin-top: 2rem;
+    position: relative;
 }
 
 .carousel-track {
     display: flex;
-    gap: 3rem;
-    animation: scroll 15s linear infinite;
+    gap: 5rem;
+    width: max-content; /* garante largura adaptável */
+    animation: scroll 40s linear infinite; /* pode aumentar a duração para ficar mais suave */
 }
 
 .carousel-track img {
-    max-width: 140px;
-    filter: grayscale(100%);
-    transition: 0.3s;
-}
-
-.carousel-track img:hover {
-    filter: grayscale(0%);
-    transform: scale(1.08);
+    width: auto;
+    height: 100px;
+    object-fit: contain;
+    transition: filter 0.3s;
 }
 
 @keyframes scroll {
@@ -291,23 +377,186 @@ h3 {
 }
 
 /* Contato */
+/* Contato refinado */
 .contact {
+    background: var(--primary);
+    color: white;
     text-align: center;
 }
 
-.contact-options {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1rem;
+.contact h2 {
+    color: var(--secondary);
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
     margin-top: 2rem;
+    align-items: start;
+    text-align: left;
+}
+
+.contact-form {
+    width: 400px;
+    background: #fff;
+    color: #333;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.contact-form .form-group {
+    margin-bottom: 1.2rem;
+}
+
+.contact-form label {
+    display: block;
+    font-size: .9rem;
+    font-weight: 600;
+    margin-bottom: .4rem;
+    color: #444;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 90%;
+    max-width: 100%;
+    padding: .8rem 1rem;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: .95rem;
+    transition: border .3s;
+    resize: none;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: var(--secondary);
+    outline: none;
+}
+
+.contact-form button {
+    margin-top: .5rem;
+    width: 100%;
+}
+
+.contact-alt {
+    background: rgba(255, 255, 255, 0.08);
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.contact-alt h3 {
+    margin-bottom: .8rem;
+    color: var(--secondary);
+}
+
+.contact-alt p {
+    margin-bottom: 1.2rem;
+    font-size: .95rem;
+    color: #eee;
+}
+
+.contact-alt .btn.small {
+    display: inline-block;
+    padding: .6rem 1.2rem;
+    font-size: .9rem;
+    margin: .3rem;
+}
+
+@media (max-width: 900px) {
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* Footer */
 footer {
-    background: var(--primary);
+    background: #111;
+    color: #bbb;
+    padding: 2rem 0 0;
+}
+
+footer p {
+    margin: 0.3rem 0;
+}
+
+.footer-wrap {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    align-items: start;
+    gap: 2rem;
+}
+
+.footer-info h3 {
+    color: var(--secondary);
+    margin-bottom: .4rem;
+}
+
+.footer-info h4 {
+    margin-top: 1.5rem;
+    margin-bottom: .6rem;
     color: white;
+    font-size: 1rem;
+}
+
+.footer-services {
+    list-style: disc;
+    padding-left: 1.2rem;
+    margin: 0;
+}
+
+.footer-services li {
+    margin-bottom: .4rem;
+    font-size: .9rem;
+    color: #ddd;
+}
+
+footer .map {
+    margin-top: 50px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, .12);
+}
+
+.footer-bottom {
     text-align: center;
-    padding: 2rem;
-    font-size: 0.9rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: 2rem;
+    padding: 1rem;
+    font-size: .85rem;
+    color: #888;
+}
+
+@media (max-width: 900px) {
+    .footer-wrap {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .hero-content {
+        max-width: 100%;
+        margin: 0 5%;
+        text-align: center;
+    }
+
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .structure-grid {
+        grid-template-columns: 1fr;
+    }
 }
