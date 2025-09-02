@@ -1,0 +1,313 @@
+:root {
+    --primary: #002855;
+    --secondary: #f4b400;
+    --light: #f9f9f9;
+    --dark: #333;
+    --gradient: linear-gradient(135deg, rgba(0, 40, 85, 0.85), rgba(0, 40, 85, 0.55));
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    color: var(--dark);
+    background: white;
+}
+
+h1,
+h2,
+h3 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.6rem;
+}
+
+/* Hero */
+.hero {
+    position: relative;
+    height: 100vh;
+    background: url('../img/capa.png') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(224, 224, 224, 0);
+}
+
+.hero-content {
+    position: relative;
+    max-width: 850px;
+    padding: 2rem;
+    z-index: 2;
+}
+
+.hero-content h1 {
+    color: white;
+    margin-bottom: 1rem;
+}
+
+.hero-content p {
+    color: #eee;
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+}
+
+.logo-hero {
+    width: 300px;
+    height: auto;
+    margin-bottom: 1.5rem;
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.5rem;
+    color: white;
+    animation: bounce 1.8s infinite;
+}
+
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: translate(-50%, 0);
+    }
+
+    50% {
+        transform: translate(-50%, -12px);
+    }
+}
+
+/* Botões */
+.btn {
+    background: var(--secondary);
+    color: black;
+    padding: 0.8rem 1.6rem;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 0.4rem;
+    display: inline-block;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #dba300;
+}
+
+.btn.secondary {
+    background: white;
+    color: var(--primary);
+}
+
+/* Containers */
+.container {
+    width: 90%;
+    max-width: 1150px;
+    margin: auto;
+    padding: 4rem 0;
+}
+
+/* Grid layouts */
+.grid-2 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1.5rem;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+}
+
+/* Cards */
+.card,
+.value-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-align: center;
+}
+
+.card:hover,
+.value-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+.card i,
+.value-card i {
+    font-size: 2rem;
+    color: var(--secondary);
+    margin-bottom: 0.8rem;
+}
+
+/* Estrutura Organizacional */
+.structure-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.2rem;
+    text-align: center;
+}
+
+.structure-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 14px;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.06);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.structure-card i {
+    font-size: 1.8rem;
+    margin-bottom: 0.6rem;
+    color: var(--secondary);
+}
+
+.structure-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.1);
+}
+
+.structure-card.destaque {
+    background: var(--primary);
+    color: white;
+}
+
+.structure-card.destaque i {
+    color: var(--secondary);
+}
+
+/* Serviços */
+.service-card {
+    position: relative;
+    height: 280px;
+    border-radius: 14px;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.4s ease-in-out;
+}
+
+.service-card:hover {
+    transform: scale(1.05);
+}
+
+.service-card .overlay {
+    position: absolute;
+    inset: 0;
+    background: var(--gradient);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 1.5rem;
+    transition: background 0.4s;
+}
+
+.service-card i {
+    font-size: 2rem;
+    margin-bottom: 0.8rem;
+    color: var(--secondary);
+}
+
+.service-card h3 {
+    color: var(--secondary);
+    margin-bottom: 0.6rem;
+}
+
+/* Clientes Carrossel */
+.clients {
+    background: var(--light);
+    text-align: center;
+    padding: 4rem 0;
+    overflow: hidden;
+}
+
+.clients-carousel {
+    overflow: hidden;
+    width: 100%;
+    margin-top: 2rem;
+}
+
+.carousel-track {
+    display: flex;
+    gap: 3rem;
+    animation: scroll 15s linear infinite;
+}
+
+.carousel-track img {
+    max-width: 140px;
+    filter: grayscale(100%);
+    transition: 0.3s;
+}
+
+.carousel-track img:hover {
+    filter: grayscale(0%);
+    transform: scale(1.08);
+}
+
+@keyframes scroll {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+/* Contato */
+.contact {
+    text-align: center;
+}
+
+.contact-options {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+/* Footer */
+footer {
+    background: var(--primary);
+    color: white;
+    text-align: center;
+    padding: 2rem;
+    font-size: 0.9rem;
+}
