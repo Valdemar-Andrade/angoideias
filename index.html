@@ -25,6 +25,36 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
     />
+
+    <!-- Favicon básico -->
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
+
+    <!-- Favicon para Apple devices -->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="img/apple-touch-icon.png"
+    />
+
+    <!-- Favicon para Android -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="img/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="img/favicon-16x16.png"
+    />
+
+    <!-- Web App Manifest (para PWA) -->
+    <link rel="manifest" href="site.webmanifest" />
+
+    <!-- Configuração de cor para a barra de endereço mobile -->
+    <meta name="theme-color" content="#ffffff" />
   </head>
   <body>
     <!-- Hero Section -->
@@ -118,36 +148,83 @@
     </section>
 
     <!-- Estrutura Organizacional -->
-    <section id="structure" class="container">
-      <h2 data-aos="fade-up">Estrutura Organizacional</h2>
-      <div class="structure-grid" data-aos="zoom-in">
-        <div class="structure-card">
-          <i class="fas fa-scale-balanced"></i>
-          <p>Consultoria Administrativa & Jurídica</p>
-        </div>
-        <div class="structure-card">
-          <i class="fas fa-chart-line"></i>
-          <p>Desenvolvimento de Negócios</p>
-        </div>
-        <div class="structure-card">
-          <i class="fas fa-car"></i>
-          <p>Serviços Automóveis</p>
-        </div>
-        <div class="structure-card">
-          <i class="fas fa-kit-medical"></i>
-          <p>Produtos Farmacêuticos & Médicos</p>
-        </div>
-        <div class="structure-card">
-          <i class="fas fa-building"></i>
-          <p>Viagens & Imobiliário</p>
-        </div>
-        <div class="structure-card">
-          <i class="fas fa-bullhorn"></i>
-          <p>Marketing & Comunicação</p>
-        </div>
-        <div class="structure-card">
-          <i class="fas fa-coins"></i>
-          <p>Finanças & Administração</p>
+    <section id="structure" class="structure">
+      <div class="container" data-aos="fade-up">
+        <h2>Estrutura Organizacional</h2>
+
+        <div class="org-network">
+          <!-- Sócio-Gerente -->
+          <div class="org-node top">
+            <div class="org-box highlight">
+              <h3>Sócio-Gerente</h3>
+            </div>
+            <div class="line-vertical"></div>
+          </div>
+
+          <!-- Gerente -->
+          <div class="org-node middle">
+            <div class="org-box">
+              <h3>Gerente</h3>
+            </div>
+            <div class="line-vertical"></div>
+          </div>
+
+          <!-- Departamentos -->
+          <div class="org-level">
+            <div class="org-branch">
+              <div class="line-horizontal"></div>
+              <div class="org-box small">
+                <h3>
+                  Departamento de<br />Consultoria Administrativa e Jurídica
+                </h3>
+              </div>
+            </div>
+
+            <div class="org-branch">
+              <div class="line-horizontal"></div>
+              <div class="org-box small">
+                <h3>
+                  Departamento de<br />Desenvolvimento de Negócios<br />
+                  & Apoio ao Investimento
+                </h3>
+              </div>
+            </div>
+
+            <div class="org-branch">
+              <div class="line-horizontal"></div>
+              <div class="org-box small">
+                <h3>Departamento de<br />Serviços Automóveis</h3>
+              </div>
+            </div>
+
+            <div class="org-branch">
+              <div class="line-horizontal"></div>
+              <div class="org-box small">
+                <h3>Departamento de<br />Produtos Farmacêuticos e Médicos</h3>
+              </div>
+            </div>
+
+            <div class="org-branch">
+              <div class="line-horizontal"></div>
+              <div class="org-box small">
+                <h3>Departamento de<br />Viagens & Imobiliário</h3>
+              </div>
+            </div>
+
+            <div class="org-branch">
+              <div class="line-horizontal"></div>
+              <div class="org-box small">
+                <h3>Departamento de<br />Marketing e Comunicação</h3>
+              </div>
+            </div>
+
+            <div class="org-branch">
+              <div class="line-horizontal"></div>
+              <div class="org-box small">
+                <h3>Departamento de<br />Finanças e Administração</h3>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -332,6 +409,7 @@
                 name="name"
                 required
                 placeholder="Seu nome"
+                minlength="3"
               />
             </div>
             <div class="form-group">
@@ -352,6 +430,7 @@
                 rows="5"
                 required
                 placeholder="Digite sua mensagem..."
+                minlength="10"
               ></textarea>
             </div>
             <button type="submit" class="btn">
@@ -389,7 +468,7 @@
         <!-- Mapa -->
         <div class="map">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d985.3934669025812!2d13.1843687!3d-8.9191477!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1a51f539b1c0012f%3A0x50837cb928f3d46d!2sCondom%C3%ADnio%20Mirantes%20do%20Talatona!5e0!3m2!1spt-PT!2sao!4v1756845328315!5m2!1spt-PT!2sao"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1970.7878720083143!2d13.18391828853187!3d-8.918973897784499!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1a51f500007c7897%3A0xba54686d092faaf!2sMasuika%20Office%20Plaza!5e0!3m2!1spt-PT!2sao!4v1756901883735!5m2!1spt-PT!2sao"
             width="100%"
             height="260"
             style="border: 0"
@@ -407,7 +486,7 @@
             alt="Ango-Ideias"
             class="logo-hero"
           />
-          <p>Edifício Massuika Bloco A, Talatona - Luanda</p>
+          <p>Edifício Masuika Bloco A, Talatona - Luanda</p>
           <p>Tel: +244 950 970 798 / 936 056 846</p>
           <p>NIF: 5000030210</p>
 

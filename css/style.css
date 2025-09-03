@@ -201,41 +201,117 @@ h3 {
     background: #ffffff;
 }
 
-/* Estrutura Organizacional */
-.structure-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 1.2rem;
+/* Estrutura Organizacional - Rede */
+.structure {
+    background: #f7f9fc;
     text-align: center;
 }
 
-.structure-card {
+.structure h2 {
+    margin-bottom: 2.5rem;
+    color: var(--primary);
+}
+
+.org-network {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+/* Nó com linha vertical */
+.org-node {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.line-vertical {
+    width: 2px;
+    height: 40px;
+    background: #ccc;
+    margin: 0.5rem 0;
+}
+
+/* Caixa */
+.org-box {
     background: white;
-    padding: 1.5rem;
-    border-radius: 14px;
-    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.06);
-    transition: transform 0.3s, box-shadow 0.3s;
+    padding: 1rem 1.2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    min-width: 180px;
+    transition: transform .3s;
 }
 
-.structure-card i {
-    font-size: 1.8rem;
-    margin-bottom: 0.6rem;
-    color: var(--secondary);
+.org-box:hover {
+    transform: translateY(-4px);
 }
 
-.structure-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.1);
+.org-box h3 {
+    font-size: 1rem;
+    color: var(--gradient);
 }
 
-.structure-card.destaque {
-    background: var(--primary);
+.org-box p {
+    font-size: .85rem;
+    margin: 0;
+    color: #444;
+}
+
+/* Destaque do Sócio-Gerente */
+.org-box.highlight {
+    background: var(--gradient);
     color: white;
 }
 
-.structure-card.destaque i {
-    color: var(--secondary);
+.org-box.highlight h3 {
+    color: white;
 }
+
+/* Departamentos em linha */
+.org-level {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    position: relative;
+    margin-top: 1rem;
+    max-width: 1100px;
+}
+
+/* Linha horizontal única */
+.org-level::before {
+    content: "";
+    position: absolute;
+    top: -20px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: #ccc;
+    z-index: 0;
+}
+
+.org-branch {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.line-horizontal {
+    width: 2px;
+    height: 20px;
+    background: #ccc;
+    margin-bottom: 0.5rem;
+}
+
+/* Ajuste para cards menores */
+.org-box.small {
+    min-width: 180px;
+    font-size: .85rem;
+    padding: 1rem;
+}
+
 
 /* Serviços */
 .service-card {
@@ -414,7 +490,6 @@ h3 {
 /* Valores */
 .values {
     background: #f7f9fc;
-    padding: 4rem 0;
 }
 
 .value-card {
