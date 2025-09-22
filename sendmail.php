@@ -38,6 +38,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
         $mail->Port       = 465;
 
+        // Corrige charset para acentuação
+        $mail->CharSet = 'UTF-8';
+        $mail->Encoding = 'base64';
+
         // Remetente (fixo = corporativo da empresa)
         $mail->setFrom('adilma.andrade@angoideias.com', 'Website AngoIdeias');
 
