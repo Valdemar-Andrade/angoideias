@@ -29,7 +29,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $mail = new PHPMailer(true);
 
     try {
-        // Configuração do servidor SMTP (Hostinger)
         $mail->isSMTP();
         $mail->Host       = '#';
         $mail->SMTPAuth   = #;
