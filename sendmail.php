@@ -31,27 +31,22 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     try {
         // Configuração do servidor SMTP (Hostinger)
         $mail->isSMTP();
-        $mail->Host       = 'smtp.hostinger.com';
-        $mail->SMTPAuth   = true;
-        $mail->Username   = 'adilma.andrade@angoideias.com'; // e-mail da empresa (Hostinger)
-        $mail->Password   = 'A.andrade21';         // senha definida no painel Hostinger
-        $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
-        $mail->Port       = 465;
+        $mail->Host       = '#';
+        $mail->SMTPAuth   = #;
+        $mail->Username   = '#'; // e-mail da empresa (Hostinger)
+        $mail->Password   = '#';         // senha definida no painel Hostinger
+        $mail->SMTPSecure = #;
+        $mail->Port       = #;
 
         // Corrige charset para acentuação
         $mail->CharSet = 'UTF-8';
         $mail->Encoding = 'base64';
 
-        // Remetente (fixo = corporativo da empresa)
-        $mail->setFrom('adilma.andrade@angoideias.com', 'Website AngoIdeias');
-
-        // Define o cliente como Reply-To (assim empresa responde direto ao cliente)
+        $mail->setFrom('#', 'Website AngoIdeias');
+        
         $mail->addReplyTo($email, $name);
 
-        // Destinatários (3 preferidos da empresa)
-        $mail->addAddress('adilma.andrade@angoideias.com');
-        $mail->addAddress('info@angoideias.com');
-        $mail->addAddress('ahmed.mmb@angoideias.com');
+        $mail->addAddress('#');
 
         // Conteúdo do e-mail
         $mail->isHTML(true);
