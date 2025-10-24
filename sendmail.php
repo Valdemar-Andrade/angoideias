@@ -33,8 +33,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $mail->isSMTP();
         $mail->Host       = '#';
         $mail->SMTPAuth   = #;
-        $mail->Username   = '#'; // e-mail da empresa (Hostinger)
-        $mail->Password   = '#';         // senha definida no painel Hostinger
+        $mail->Username   = '#';
+        $mail->Password   = '#';
         $mail->SMTPSecure = #;
         $mail->Port       = #;
 
